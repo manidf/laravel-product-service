@@ -15,6 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('products', function () {
+Route::get('product', function () {
 		return App\Product::all();
 });
