@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('product', function () {
-		return App\Product::all();
+Route::group(['prefix' => 'api'], function () {
+
+		Route::get('products', ['as' => 'products', function () {
+				return App\Product::all();
+		}]);
+
 });
