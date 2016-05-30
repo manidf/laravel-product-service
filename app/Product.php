@@ -8,6 +8,6 @@ class Product extends Model
 {
 		public function descriptions()
 		{
-			return $this->hasMany();
+			return $this->hasMany(Description::class);
 		}
 }
