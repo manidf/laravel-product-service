@@ -19,6 +19,6 @@ $factory->define(App\Product::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Description::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->text,
+        'body' => $faker->text,
     ];
 });
