@@ -10,7 +10,7 @@ class ProductController extends Controller
 {
 		/**
 		 * Display a listing of the ResourceBundle
-		 * @return REsponse
+		 * @return Response
 		 **/
 		 public function index()
 		 {
