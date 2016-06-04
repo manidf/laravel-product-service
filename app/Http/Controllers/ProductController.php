@@ -15,7 +15,7 @@ class ProductController extends Controller
    **/
   public function index()
   {
-    return Product::all();
+    return Product::paginate();
   }
 
   /**
@@ -25,7 +25,10 @@ class ProductController extends Controller
    **/
   public function store(Request $request)
   {
-    //
+    // insert record
+    return Product::create([
+      'name' => $request->input('name')
+    ]);
   }
 
   /**
