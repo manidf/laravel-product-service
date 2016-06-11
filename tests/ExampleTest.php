@@ -45,7 +45,7 @@ class ExampleTest extends TestCase
 
     // generate 3 records of a product
     // descriptions method returns a relationship object
-    $product ->descriptions()->saveMany(factory(\App\Description::class, 3)->make());
+    $product->descriptions()->saveMany(factory(\App\Description::class, 3)->make());
 
     // perform get request to database
     $this->get(route('api.products.descriptions.index', ['products' => $product->id]))
@@ -55,5 +55,12 @@ class ExampleTest extends TestCase
     array_map(function ($description) {
       $this->seeJson($description->jsonSerialize());
     }, $product->descriptions->all());
+  }
+  public function testUpdateProduct()
+  {
+    $product = factory(Product::class)->create(['name' => 'beats']);
+    $this->put(route('api.products.update', ['productId' => $product->id]), ['name' => 'Huawie'], $this->jsonHeaders)
+      ->seeInDatabase('products', ['name' => 'Huawie'])
+      ->assertResponseOk();
   }
 }
